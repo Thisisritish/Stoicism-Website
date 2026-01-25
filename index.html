@@ -1,308 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stoicism | Ritish Lamsal</title>
-  <meta name="description" content="A bilingual Stoicism sanctuary by Ritish Lamsal — reason, discipline, virtue, and inner freedom." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ritish Lamsal | Stoic Practice</title>
 
-  <style>
-    :root {
-      --bg: #0b0d12;
-      --bg-soft: #121520;
-      --card: #171a26;
-      --text: #e9e9ef;
-      --muted: #a0a6b3;
-      --accent: #c7a35f;
-      --accent-soft: rgba(199,163,95,0.15);
-    }
+<style>
+:root {
+  --bg: #0e0f11;
+  --card: #16181c;
+  --text: #e8e8e8;
+  --muted: #a0a0a0;
+  --accent: #c9a24d;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-      background:
-        radial-gradient(900px 450px at 50% -10%, #1a1e2f, transparent),
-        linear-gradient(180deg, var(--bg-soft), var(--bg));
-      color: var(--text);
-      line-height: 1.85;
-    }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-    a { color: var(--accent); text-decoration: none; }
+header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .lang-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      padding: 10px 18px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      z-index: 10;
-    }
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
 
-    .lang-toggle:hover { background: #1d2030; }
+nav button {
+  background: none;
+  border: none;
+  color: var(--text);
+  margin-left: 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
 
-    header {
-      max-width: 1100px;
-      margin: auto;
-      padding: 130px 24px 90px;
-      text-align: center;
-    }
+nav button.active {
+  opacity: 1;
+  color: var(--accent);
+}
 
-    header h1 {
-      font-size: clamp(3.2rem, 6vw, 4.8rem);
-      letter-spacing: 1px;
-      margin-bottom: 22px;
-    }
+.lang-toggle {
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+}
 
-    header p {
-      color: var(--muted);
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.18rem;
-    }
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
 
-    .divider {
-      width: 140px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      margin: 56px auto 0;
-    }
+section {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 24px 140px;
-      display: grid;
-      gap: 64px;
-    }
+h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
 
-    .card {
-      background: linear-gradient(180deg, #1b1f2f, var(--card));
-      border-radius: 26px;
-      padding: 44px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.45);
-    }
+p { color: var(--text); }
+li { color: var(--text); margin-bottom: 0.6rem; }
 
-    .card h2 {
-      font-size: 1.9rem;
-      margin-bottom: 18px;
-      color: var(--accent);
-    }
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
 
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-
-    .quote {
-      margin-top: 22px;
-      padding-left: 22px;
-      border-left: 3px solid var(--accent);
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 34px;
-    }
-
-    .timeline { display: grid; gap: 26px; }
-    .timeline-item { padding-left: 26px; border-left: 2px solid var(--accent); }
-    .timeline-item span { color: var(--accent); font-weight: 600; }
-
-    ul { margin-top: 10px; padding-left: 18px; }
-    li { margin-bottom: 8px; }
-
-    footer {
-      text-align: center;
-      padding: 80px 16px 90px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    footer strong { color: var(--accent); }
-
-    @media (max-width: 600px) {
-      header { padding-top: 100px; }
-      .card { padding: 30px; }
-    }
-  </style>
+/* Hide language blocks */
+[data-lang] { display: none; }
+[data-lang].active { display: block; }
+</style>
 </head>
+
 <body>
 
-<button class="lang-toggle" onclick="toggleLanguage()">नेपाली</button>
+<header>
+  <h1 id="site-name">Ritish Lamsal</h1>
+  <nav>
+    <button class="tab active" data-tab="home">Home</button>
+    <button class="tab" data-tab="rulebook">Rulebook</button>
+    <button class="lang-toggle" id="langBtn">नेपाली</button>
+  </nav>
+</header>
 
-<!-- ================= ENGLISH ================= -->
-<div id="en">
-  <header>
-    <h1>Stoicism</h1>
-    <p>
-      A quiet philosophy for loud times. Stoicism is not about escaping pain,
-      but about meeting reality with courage, clarity, and self-command.
-      This is a personal sanctuary by <strong>Ritish Lamsal</strong>.
-    </p>
-    <div class="divider"></div>
-  </header>
+<main>
 
-  <main>
-    <section class="card">
-      <h2>The Core Idea</h2>
-      <p>
-        Stoicism begins with a simple distinction: some things are within our control,
-        and some things are not. Suffering arises when we confuse the two.
-        Freedom comes from aligning our effort only with what depends on us.
-      </p>
-      <div class="quote">"Make the best use of what is in your power, and take the rest as it happens." — Epictetus</div>
-    </section>
+<!-- HOME -->
+<section id="home">
 
-    <section class="grid">
-      <div class="card">
-        <h3>Control</h3>
-        <p>Your judgments, intentions, and actions are yours alone. Guard them carefully.</p>
-      </div>
-      <div class="card">
-        <h3>Discipline</h3>
-        <p>Comfort weakens. Discipline strengthens. Choose the harder right over the easier wrong.</p>
-      </div>
-      <div class="card">
-        <h3>Virtue</h3>
-        <p>Wisdom, courage, justice, and temperance are the only true measures of success.</p>
-      </div>
-    </section>
+<div data-lang="en" class="active">
+<h2>Stoicism as a Practice</h2>
+<p>
+This is not a motivational website.  
+This is a place for clarity, discipline, and inner order.
+</p>
 
-    <section class="card">
-      <h2>The Stoic Day</h2>
-      <div class="timeline">
-        <div class="timeline-item"><span>Morning</span><br />Mentally rehearse difficulty. Decide to act with virtue.</div>
-        <div class="timeline-item"><span>Midday</span><br />Do one thing at a time. Give full attention to duty.</div>
-        <div class="timeline-item"><span>Evening</span><br />Review the day without excuse or self-hatred.</div>
-      </div>
-    </section>
+<p>
+Stoicism teaches one simple truth:
+<strong>Some things are in my control. Most things are not.</strong>
+</p>
 
-    <section class="card">
-      <h2>Practices That Shape Character</h2>
-      <ul>
-        <li>Voluntary discomfort to reduce fear of hardship</li>
-        <li>Negative visualization to cultivate gratitude</li>
-        <li>Journaling to correct distorted thinking</li>
-        <li>Silence to regain mental clarity</li>
-        <li>Service to others as moral training</li>
-      </ul>
-    </section>
+<ul>
+<li>My thoughts are mine.</li>
+<li>My effort is mine.</li>
+<li>My values are mine.</li>
+<li>Outcomes are not.</li>
+</ul>
 
-    <section class="card">
-      <h2>Why This Site Exists</h2>
-      <p>
-        This site is not meant to motivate, sell, or perform. It exists as a reminder:
-        life is short, control is limited, and character is everything.
-      </p>
-      <div class="quote">"Waste no more time arguing what a good man should be. Be one." — Marcus Aurelius</div>
-    </section>
-  </main>
+<p>
+I practice Stoicism not to escape life, but to meet it without fear.
+</p>
+
+<h2>Core Principles</h2>
+<ul>
+<li><strong>Control:</strong> I focus only on what depends on me.</li>
+<li><strong>Discipline:</strong> I train consistency over emotion.</li>
+<li><strong>Virtue:</strong> Character matters more than comfort.</li>
+<li><strong>Presence:</strong> The present moment is enough.</li>
+</ul>
+
+<h2>Why This Site Exists</h2>
+<p>
+This website is my reminder system.
+A quiet place I return to when my mind gets loud.
+</p>
 </div>
 
-<!-- ================= NEPALI ================= -->
-<div id="np" style="display:none">
-  <header>
-    <h1>स्टोइक दर्शन</h1>
-    <p>
-      कोलाहलपूर्ण समयका लागि शान्त दर्शन। स्टोइक दर्शन दुःखबाट भाग्ने उपाय होइन,
-      तर जीवनलाई साहस, स्पष्टता र आत्मसंयमका साथ सामना गर्ने कला हो।
-      <strong>रितिश लाम्साल</strong> को व्यक्तिगत प्रयास।
-    </p>
-    <div class="divider"></div>
-  </header>
+<div data-lang="np">
+<h2>अभ्यासको रूपमा स्टोइक दर्शन</h2>
+<p>
+यो कुनै मोटिभेसनल वेबसाइट होइन।  
+यो स्पष्टता, अनुशासन र आन्तरिक सन्तुलनको स्थान हो।
+</p>
 
-  <main>
-    <section class="card">
-      <h2>मूल विचार</h2>
-      <p>
-        स्टोइक दर्शन एउटा सरल विभाजनबाट सुरु हुन्छ — केही कुरा हाम्रो नियन्त्रणमा छन्,
-        केही छैनन्। यी दुईलाई गडबड गर्दा नै दुःख उत्पन्न हुन्छ।
-      </p>
-      <div class="quote">"जे तिम्रो हातमा छ त्यसको सर्वोत्तम प्रयोग गर, बाँकीलाई स्वाभाविक रूपमा स्वीकार गर।" — एपिक्टेटस</div>
-    </section>
+<p>
+स्टोइक दर्शनले एउटा सरल सत्य सिकाउँछ:
+<strong>केही कुरा मेरो नियन्त्रणमा छन्, धेरै छैनन्।</strong>
+</p>
 
-    <section class="grid">
-      <div class="card">
-        <h3>नियन्त्रण</h3>
-        <p>तिम्रो सोच, निर्णय र कर्म तिम्रै हुन्। तिनको रक्षा गर।</p>
-      </div>
-      <div class="card">
-        <h3>अनुशासन</h3>
-        <p>सजिलो बाटोले कमजोर बनाउँछ। अनुशासनले बलियो बनाउँछ।</p>
-      </div>
-      <div class="card">
-        <h3>सद्गुण</h3>
-        <p>ज्ञान, साहस, न्याय र संयम नै सफल जीवनका साँचो मापदण्ड हुन्।</p>
-      </div>
-    </section>
+<ul>
+<li>मेरो सोच मेरो हो।</li>
+<li>मेरो प्रयास मेरो हो।</li>
+<li>मेरो मूल्य मेरो हो।</li>
+<li>परिणाम मेरो होइन।</li>
+</ul>
 
-    <section class="card">
-      <h2>स्टोइक दिनचर्या</h2>
-      <div class="timeline">
-        <div class="timeline-item"><span>बिहान</span><br />आगामी कठिनाइको मानसिक तयारी गर।</div>
-        <div class="timeline-item"><span>दिउँसो</span><br />एकै काममा पूर्ण ध्यान दे।</div>
-        <div class="timeline-item"><span>रात</span><br />दिनभरको आत्ममूल्याङ्कन गर।</div>
-      </div>
-    </section>
+<p>
+म जीवनबाट भाग्न होइन, डर बिना जीवन सामना गर्न स्टोइक अभ्यास गर्छु।
+</p>
 
-    <section class="card">
-      <h2>चरित्र निर्माणका अभ्यासहरू</h2>
-      <ul>
-        <li>स्वेच्छिक असहजता सहने अभ्यास</li>
-        <li>हानिको कल्पना गरेर कृतज्ञता बढाउने</li>
-        <li>दैनिक लेखनद्वारा सोच सुधार्ने</li>
-        <li>मौन अभ्यासद्वारा मानसिक स्पष्टता</li>
-        <li>अरूको सेवा गरेर नैतिक बल विकास</li>
-      </ul>
-    </section>
+<h2>मुख्य सिद्धान्तहरू</h2>
+<ul>
+<li><strong>नियन्त्रण:</strong> म केवल मेरो नियन्त्रणका कुरामा ध्यान दिन्छु।</li>
+<li><strong>अनुशासन:</strong> भावना भन्दा निरन्तरतालाई प्राथमिकता।</li>
+<li><strong>चरित्र:</strong> आराम भन्दा चरित्र महत्वपूर्ण।</li>
+<li><strong>वर्तमान:</strong> अहिलेको क्षण पर्याप्त छ।</li>
+</ul>
 
-    <section class="card">
-      <h2>यस साइटको उद्देश्य</h2>
-      <p>
-        यो साइट देखाउन वा प्रभावित पार्न बनेको होइन।
-        यो केवल एउटा सम्झना हो — जीवन छोटो छ,
-        नियन्त्रण सीमित छ, तर चरित्र अमूल्य छ।
-      </p>
-      <div class="quote">"असल मानिस कस्तो हुनुपर्छ भनेर बहस नगर्नू। असल मानिस बन।" — मार्कस औरेलियस</div>
-    </section>
-  </main>
+<h2>यो वेबसाइट किन छ</h2>
+<p>
+यो मेरो मानसिक सम्झना प्रणाली हो।
+जब मेरो दिमाग धेरै आवाज गर्छ, म यहाँ फर्कन्छु।
+</p>
 </div>
+
+</section>
+
+<!-- RULEBOOK -->
+<section id="rulebook" style="display:none;">
+
+<div data-lang="en" class="active">
+<h2>Personal Rulebook</h2>
+<p><em>(Read when my mind spirals)</em></p>
+
+<h3>Identity</h3>
+<ul>
+<li>I am not broken — I am rebuilding.</li>
+<li>Confusion is part of growth.</li>
+<li>I don’t need everything figured out.</li>
+</ul>
+
+<h3>When My Mind Goes Crazy</h3>
+<ul>
+<li>Pause before reacting.</li>
+<li>Name the feeling, not the story.</li>
+<li>Ground in my body before thinking.</li>
+</ul>
+
+<h3>Love & Attachment</h3>
+<ul>
+<li>I don’t turn a person into my future.</li>
+<li>Love is a bonus, not my foundation.</li>
+<li>If it costs my peace, I step back.</li>
+<li>I choose dignity over intensity.</li>
+</ul>
+
+<h3>Study & Career</h3>
+<ul>
+<li>I shrink my time horizon to today.</li>
+<li>I measure effort, not results.</li>
+<li>Consistency &gt; perfection.</li>
+</ul>
+
+<h3>Loneliness & Emotions</h3>
+<ul>
+<li>Loneliness is a feeling, not a verdict.</li>
+<li>Pain is allowed; dramatizing is optional.</li>
+<li>Presence is the cure.</li>
+</ul>
+
+<h3>Emergency Mode</h3>
+<ul>
+<li>Eat</li>
+<li>Sleep</li>
+<li>One small task</li>
+<li>No big decisions</li>
+</ul>
+
+<p><strong>I don’t need to win today. I only need to show up.</strong></p>
+</div>
+
+<div data-lang="np">
+<h2>व्यक्तिगत नियमपुस्तिका</h2>
+<p><em>(दिमाग गडबड हुँदा पढ्ने)</em></p>
+
+<h3>पहिचान</h3>
+<ul>
+<li>म बिग्रिएको होइन — म पुनःनिर्माण हुँदैछु।</li>
+<li>अलमल विकासको भाग हो।</li>
+<li>सबै कुरा अहिले बुझ्नै पर्दैन।</li>
+</ul>
+
+<h3>जब दिमाग अति हुन्छ</h3>
+<ul>
+<li>प्रतिक्रिया अघि रोक।</li>
+<li>कथा होइन, भावना नाम दे।</li>
+<li>पहिले शरीरमा फर्क, अनि सोच।</li>
+</ul>
+
+<h3>माया र आसक्ति</h3>
+<ul>
+<li>म कसैलाई मेरो भविष्य बनाउँदिन।</li>
+<li>माया बोनस हो, आधार होइन।</li>
+<li>शान्ति गुम्छ भने म पछि हट्छु।</li>
+<li>तीव्रता भन्दा गरिमा।</li>
+</ul>
+
+<h3>पढाइ र करियर</h3>
+<ul>
+<li>आजमा सीमित हुन्छु।</li>
+<li>प्रयास मापन गर्छु, परिणाम होइन।</li>
+<li>निरन्तरता &gt; पूर्णता।</li>
+</ul>
+
+<h3>एक्लोपन र भावना</h3>
+<ul>
+<li>एक्लोपन भावना हो, फैसला होइन।</li>
+<li>दुख स्वीकृत छ, नाटक वैकल्पिक।</li>
+<li>वर्तमान नै औषधि हो।</li>
+</ul>
+
+<h3>आपतकालीन मोड</h3>
+<ul>
+<li>खानु</li>
+<li>सुत्नु</li>
+<li>एउटा सानो काम</li>
+<li>ठूला निर्णय नगर्नु</li>
+</ul>
+
+<p><strong>आज जित्नुपर्दैन। उपस्थित हुनु नै पर्याप्त छ।</strong></p>
+</div>
+
+</section>
+
+</main>
 
 <footer>
-  © <strong>Ritish Lamsal</strong> • ritishlamsal.com.np<br />
-  <span>Live with reason • सद्गुणका साथ बाँच</span>
+© 2026 — Ritish Lamsal | रितिस लम्साल
 </footer>
 
 <script>
-  let current = 'en';
-  function toggleLanguage() {
-    const en = document.getElementById('en');
-    const np = document.getElementById('np');
-    const btn = document.querySelector('.lang-toggle');
+let currentLang = "en";
 
-    if (current === 'en') {
-      en.style.display = 'none';
-      np.style.display = 'block';
-      btn.textContent = 'English';
-      current = 'np';
-    } else {
-      np.style.display = 'none';
-      en.style.display = 'block';
-      btn.textContent = 'नेपाली';
-      current = 'en';
-    }
-  }
+document.getElementById("langBtn").onclick = () => {
+  currentLang = currentLang === "en" ? "np" : "en";
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    el.classList.toggle("active", el.dataset.lang === currentLang);
+  });
+  document.getElementById("langBtn").innerText = currentLang === "en" ? "नेपाली" : "English";
+  document.getElementById("site-name").innerText = currentLang === "en" ? "Ritish Lamsal" : "रितिस लम्साल";
+};
+
+document.querySelectorAll(".tab").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("home").style.display = btn.dataset.tab === "home" ? "block" : "none";
+    document.getElementById("rulebook").style.display = btn.dataset.tab === "rulebook" ? "block" : "none";
+  };
+});
 </script>
 
 </body>
