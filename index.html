@@ -6,22 +6,24 @@
     <title>Ritish Lamsal | Stoicism & Personal Rulebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2d3748;
-            --accent-color: #3182ce;
-            --light-color: #f7fafc;
-            --dark-color: #2d3748;
-            --border-color: #e2e8f0;
-            --success-color: #38a169;
-            --warning-color: #dd6b20;
-            --danger-color: #e53e3e;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --radius: 8px;
+            --primary-color: #0ea5e9;
+            --secondary-color: #94a3b8;
+            --accent-color: #3b82f6;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-header: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --radius: 10px;
             --transition: all 0.3s ease;
         }
 
@@ -33,10 +35,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--secondary-color);
-            background-color: #f9fafb;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
             line-height: 1.6;
             transition: var(--transition);
+            min-height: 100vh;
         }
 
         .nepali-text {
@@ -52,12 +55,13 @@
 
         /* Header Styles */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
+            background-color: var(--bg-header);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
             position: sticky;
             top: 0;
             z-index: 100;
             padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .header-content {
@@ -69,24 +73,23 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-icon {
             color: var(--accent-color);
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         .logo-text p {
             font-size: 0.9rem;
-            color: var(--secondary-color);
-            opacity: 0.8;
+            color: var(--text-secondary);
         }
 
         /* Navigation */
@@ -98,7 +101,7 @@
 
         nav a {
             text-decoration: none;
-            color: var(--secondary-color);
+            color: var(--text-secondary);
             font-weight: 500;
             padding: 0.5rem 0;
             position: relative;
@@ -123,11 +126,41 @@
             background-color: var(--accent-color);
         }
 
+        /* Header Controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 6px;
+            border-radius: 50%;
+        }
+
+        .theme-btn:hover {
+            color: var(--accent-color);
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
         /* Language Toggle */
         .language-toggle {
             display: flex;
             align-items: center;
-            background-color: var(--light-color);
+            background-color: rgba(30, 41, 59, 0.8);
             border-radius: 50px;
             padding: 4px;
             border: 1px solid var(--border-color);
@@ -141,6 +174,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
+            color: var(--text-secondary);
         }
 
         .lang-btn.active {
@@ -151,7 +185,7 @@
         /* Main Content */
         main {
             padding: 2.5rem 0;
-            min-height: calc(100vh - 200px);
+            min-height: calc(100vh - 180px);
         }
 
         .tab-content {
@@ -164,14 +198,14 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
@@ -189,28 +223,45 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: white;
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: var(--radius);
             margin-bottom: 3rem;
             text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--success-color));
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 1.5rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
         }
 
         .highlight {
-            color: #63b3ed;
+            color: #60a5fa;
             font-weight: 600;
         }
 
@@ -223,23 +274,25 @@
         }
 
         .card {
-            background-color: white;
+            background-color: var(--bg-card);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             padding: 1.8rem;
             transition: var(--transition);
             border-top: 4px solid var(--accent-color);
+            border: 1px solid var(--border-color);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
         }
 
         .card-title {
             font-size: 1.4rem;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--text-primary);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -251,16 +304,18 @@
         }
 
         .rule-number {
-            display: inline-block;
-            background-color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-color), #8b5cf6);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             text-align: center;
-            line-height: 30px;
             font-weight: 600;
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 0.9rem;
         }
 
         .rule-list {
@@ -271,14 +326,39 @@
             margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
+            color: var(--text-secondary);
         }
 
         .rule-list li::before {
-            content: '•';
+            content: '→';
             position: absolute;
             left: 0;
             color: var(--accent-color);
             font-weight: bold;
+        }
+
+        /* Rulebook Specific */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 3rem 0;
+        }
+
+        .rule-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-heading i {
+            font-size: 1.5rem;
         }
 
         /* Stoic Virtues */
@@ -290,11 +370,12 @@
         }
 
         .virtue-card {
-            background-color: white;
+            background-color: var(--bg-card);
             border-radius: var(--radius);
             padding: 1.5rem;
             box-shadow: var(--shadow);
             border-left: 4px solid var(--success-color);
+            border: 1px solid var(--border-color);
         }
 
         .virtue-card:nth-child(2) {
@@ -306,44 +387,57 @@
         }
 
         .virtue-card:nth-child(4) {
-            border-left-color: var(--danger-color);
+            border-left-color: #8b5cf6;
         }
 
         .virtue-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
-            color: var(--primary-color);
+            color: var(--text-primary);
         }
 
         /* Emergency Rule */
         .emergency-rule {
-            background: linear-gradient(135deg, #fed7d7 0%, #feebc8 100%);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
             border-radius: var(--radius);
-            padding: 2rem;
-            margin-top: 3rem;
-            border-left: 6px solid var(--danger-color);
+            padding: 2.5rem;
+            margin-top: 4rem;
+            border: 2px solid var(--danger-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-rule::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
         }
 
         .emergency-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--danger-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         .emergency-list {
             list-style: none;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
         }
 
         .emergency-list li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
             position: relative;
             font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
         .emergency-list li::before {
@@ -352,15 +446,73 @@
             left: 0;
             color: var(--success-color);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Quotes */
+        .quote-box {
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Stoic Rules Grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .rule-item {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Final Rule */
+        .final-rule {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-top: 4rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            text-align: center;
+        }
+
+        .final-rule-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--bg-header);
+            color: var(--text-secondary);
             padding: 2.5rem 0;
             margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
@@ -374,17 +526,14 @@
         .footer-logo h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-        }
-
-        .footer-logo p {
-            opacity: 0.8;
+            color: var(--text-primary);
         }
 
         .footer-quote {
             font-style: italic;
-            opacity: 0.9;
             max-width: 400px;
             text-align: center;
+            color: var(--text-secondary);
         }
 
         .copyright {
@@ -392,28 +541,24 @@
             text-align: center;
             margin-top: 2rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .header-content {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             nav ul {
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
+                font-size: 2.2rem;
             }
             
             .cards-container {
@@ -423,6 +568,29 @@
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .final-rule-text {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -445,151 +613,48 @@
             
             <nav>
                 <ul>
-                    <li><a href="#personal-rulebook" class="active english-text" data-tab="rulebook">Personal Rulebook</a></li>
-                    <li><a href="#personal-rulebook" class="nepali-text" data-tab="rulebook" style="display: none;">व्यक्तिगत नियमावली</a></li>
-                    <li><a href="#stoicism" class="english-text" data-tab="stoicism">Stoicism</a></li>
+                    <li><a href="#stoicism" class="english-text active" data-tab="stoicism">Stoicism</a></li>
                     <li><a href="#stoicism" class="nepali-text" data-tab="stoicism" style="display: none;">स्टोइसिज्म</a></li>
+                    <li><a href="#personal-rulebook" class="english-text" data-tab="rulebook">Personal Rulebook</a></li>
+                    <li><a href="#personal-rulebook" class="nepali-text" data-tab="rulebook" style="display: none;">व्यक्तिगत नियमावली</a></li>
                 </ul>
             </nav>
             
-            <div class="language-toggle">
-                <button class="lang-btn active english-text" id="lang-en">EN</button>
-                <button class="lang-btn nepali-text" id="lang-ne">ने</button>
+            <div class="header-controls">
+                <div class="theme-toggle">
+                    <button class="theme-btn" id="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                
+                <div class="language-toggle">
+                    <button class="lang-btn active english-text" id="lang-en">EN</button>
+                    <button class="lang-btn nepali-text" id="lang-ne">ने</button>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Personal Rulebook Tab -->
-        <section id="rulebook-content" class="tab-content active">
+        <!-- Stoicism Tab (Default Active) -->
+        <section id="stoicism-content" class="tab-content active">
             <div class="hero">
-                <h2 class="english-text">Personal Rulebook</h2>
-                <h2 class="nepali-text" style="display: none;">व्यक्तिगत नियमावली</h2>
-                <p class="english-text">For ages 18-22 | During confusion, loneliness, pressure</p>
-                <p class="nepali-text" style="display: none;">१८-२२ वर्षको लागि | भ्रम, एकान्त, दबावको समयमा</p>
-                <p class="english-text">A practical guide to navigate through challenging times with clarity and resilience.</p>
-                <p class="nepali-text" style="display: none;">स्पष्टता र लचिलोपनको साथ चुनौतीपूर्ण समयहरू हाँग्ने एक व्यवहारिक मार्गदर्शन।</p>
-            </div>
-            
-            <h3 class="section-title english-text">When My Mind Starts Spiraling</h3>
-            <h3 class="section-title nepali-text" style="display: none;">जब मेरो दिमाग सर्पिल हुन थाल्छ</h3>
-            
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">1</div>
-                        <span class="english-text">Pause Before Reacting</span>
-                        <span class="nepali-text" style="display: none;">प्रतिक्रिया दिनु अघि रोक्नुहोस्</span>
-                    </div>
-                    <p class="english-text">When I feel panic, obsession, urge to text, urge to quit, or "everything is fucked" thoughts, I do nothing for 10 minutes. No decisions are allowed in emotional spikes.</p>
-                    <p class="nepali-text" style="display: none;">जब म आतंक, जुनून, पाठ गर्ने इच्छा, छोड्ने इच्छा, वा "सबै खराब छ" विचारहरू महसुस गर्छु, म १० मिनेटको लागि केहि पनि गर्दिन। भावनात्मक चरम मोडमा कुनै निर्णय गर्न अनुमति छैन।</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">2</div>
-                        <span class="english-text">Name the State, Not the Story</span>
-                        <span class="nepali-text" style="display: none;">कथा होइन, अवस्था नामकरण गर्नुहोस्</span>
-                    </div>
-                    <p class="english-text">I say: "I am anxious." "Loneliness is present." "I am overwhelmed." I do not say: "My life is ruined." "I am a failure." "This means everything." States pass. Stories trap.</p>
-                    <p class="nepali-text" style="display: none;">म भन्छु: "म चिन्तित छु।" "एकान्तता उपस्थित छ।" "म अभिभूत छु।" म यो भन्दिन: "मेरो जीवन बर्बाद भयो।" "म असफल छु।" "यसको अर्थ सबै कुरा हो।" अवस्थाहरू बित्छन्। कथाहरू फँसाउँछन्।</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">3</div>
-                        <span class="english-text">Return to the Body First</span>
-                        <span class="nepali-text" style="display: none;">पहिले शरीरमा फर्कनुहोस्</span>
-                    </div>
-                    <p class="english-text">Before thinking, planning, or fixing: feet on floor, one slow breath, feel something physical. If my body is grounded, my mind will follow.</p>
-                    <p class="nepali-text" style="display: none;">सोच्नु, योजना बनाउनु, वा समस्या समाधान गर्नु अघि: फ्लोरमा खुट्टा, एउटा ढिलो सास, शारीरिक केहि महसुस गर्नु। यदि मेरो शरीर जमीनसँग जोडिएको छ भने, मेरो दिमाग पनि पछ्याउनेछ।</p>
-                </div>
-            </div>
-            
-            <h3 class="section-title english-text" style="margin-top: 3rem;">About Love, Attachment, and Obsession</h3>
-            <h3 class="section-title nepali-text" style="margin-top: 3rem; display: none;">प्रेम, आसक्ति, र जुनूनको बारेमा</h3>
-            
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">4</div>
-                        <span class="english-text">I Do Not Turn a Person Into My Future</span>
-                        <span class="nepali-text" style="display: none;">कसैलाई मेरो भविष्य नबनाउने</span>
-                    </div>
-                    <p class="english-text">No human being is allowed to carry my hope, my motivation, my self-worth, my identity. Love is a bonus, not a foundation.</p>
-                    <p class="nepali-text" style="display: none;">कुनै पनि मानिसलाई मेरो आशा, मेरो प्रेरणा, मेरो आत्म-मूल्य, मेरो पहिचान बोक्न दिँदैन। प्रेम एउटा बोनस हो, आधार होइन।</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">5</div>
-                        <span class="english-text">If It Costs My Peace, I Step Back</span>
-                        <span class="nepali-text" style="display: none;">यदि यसले मेरो शान्ति बेच्छ भने, म पछि हट्छु</span>
-                    </div>
-                    <p class="english-text">If thinking about someone breaks my focus, controls my mood, makes me wait instead of live, then I reduce emotional exposure. This is self-respect, not coldness.</p>
-                    <p class="nepali-text" style="display: none;">यदि कसैको बारेमा सोच्दा मेरो ध्यान भंग हुन्छ, मेरो मनसाय नियन्त्रण हुन्छ, म जीवन बिताउनुको सट्टा पर्खन बाध्य हुन्छु भने, म भावनात्मक जोखिम घटाउँछु। यो आत्म-सम्मान हो, चिसोपन होइन।</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-title">
-                        <div class="rule-number">6</div>
-                        <span class="english-text">I Choose Dignity Over Intensity</span>
-                        <span class="nepali-text" style="display: none;">म तीव्रताभन्दा गरिमा रोज्छु</span>
-                    </div>
-                    <p class="english-text">I do not chase clarity, seek reassurance, over-communicate feelings. One honest action is enough. After that, I live my life.</p>
-                    <p class="nepali-text" style="display: none;">म स्पष्टताको पछि लाग्दिन, आश्वासन खोज्दिन, भावनाहरू धेरै व्यक्त गर्दिन। एक ईमानदार कार्य पर्याप्त छ। त्यसपछि, म आफ्नो जीवन जिउँछु।</p>
-                </div>
-            </div>
-            
-            <!-- Emergency Rule -->
-            <div class="emergency-rule">
-                <div class="emergency-title">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span class="english-text">Emergency Rule (MOST IMPORTANT)</span>
-                    <span class="nepali-text" style="display: none;">आपतकालीन नियम (सबैभन्दा महत्त्वपूर्ण)</span>
-                </div>
-                <p class="english-text">When I feel like collapsing, I do only three things:</p>
-                <p class="nepali-text" style="display: none;">जब म ढल्ने जस्तो महसुस गर्छु, म केवल तीन काम मात्र गर्छु:</p>
-                
-                <ul class="emergency-list">
-                    <li class="english-text">Eat something</li>
-                    <li class="nepali-text" style="display: none;">केहि खानुहोस्</li>
-                    <li class="english-text">Sleep</li>
-                    <li class="nepali-text" style="display: none;">सुत्नुहोस्</li>
-                    <li class="english-text">Do one small task</li>
-                    <li class="nepali-text" style="display: none;">एउटा सानो काम गर्नुहोस्</li>
-                </ul>
-                
-                <p class="english-text"><strong>That's it.</strong> No life decisions are made in survival mode.</p>
-                <p class="nepali-text" style="display: none;"><strong>त्यत्ति मात्र।</strong> जीवन निर्वाह मोडमा जीवनको निर्णयहरू गरिदैन।</p>
-            </div>
-            
-            <!-- Final Rule -->
-            <div class="card" style="margin-top: 3rem; background-color: #e6fffa; border-top-color: #38b2ac;">
-                <div class="card-title">
-                    <i class="fas fa-heart card-icon"></i>
-                    <span class="english-text">Final Rule (READ THIS OFTEN)</span>
-                    <span class="nepali-text" style="display: none;">अन्तिम नियम (यो अक्सर पढ्नुहोस्)</span>
-                </div>
-                <p class="english-text" style="font-size: 1.2rem; font-weight: 500; line-height: 1.8;">I am not broken. I am rebuilding.<br>This phase will not last forever.<br>If I stay steady, my life will open up.</p>
-                <p class="nepali-text" style="font-size: 1.2rem; font-weight: 500; line-height: 1.8; display: none;">म भाँचिएको होइन। म पुनर्निर्माण गर्दैछु।<br>यो चरण सधैंभरि रहने छैन।<br>यदि म स्थिर रहें भने, मेरो जीवन खुल्नेछ।</p>
-            </div>
-        </section>
-        
-        <!-- Stoicism Tab -->
-        <section id="stoicism-content" class="tab-content">
-            <div class="hero">
-                <h2 class="english-text">Stoicism: A Practical Philosophy for Living Well</h2>
-                <h2 class="nepali-text" style="display: none;">स्टोइसिज्म: राम्रोसँग जीवन बिताउनको लागि व्यवहारिक दर्शन</h2>
-                <p class="english-text">Mastery over reactions. Clarity under pressure. Strength guided by reason.</p>
-                <p class="nepali-text" style="display: none;">प्रतिक्रियामा निपुणता। दबावमा स्पष्टता। कारणद्वारा मार्गदर्शित शक्ति।</p>
+                <h2 class="english-text">Stoicism: The Art of Living Well</h2>
+                <h2 class="nepali-text" style="display: none;">स्टोइसिज्म: राम्रोसँग जीवन बिताउने कला</h2>
+                <p class="english-text">A practical philosophy for resilience, clarity, and inner peace in a chaotic world.</p>
+                <p class="nepali-text" style="display: none;">अराजक संसारमा लचिलोपन, स्पष्टता र आन्तरिक शान्तिको लागि व्यवहारिक दर्शन।</p>
                 <p class="english-text"><i>"You have power over your mind — not outside events. Realize this, and you will find strength." — Marcus Aurelius</i></p>
                 <p class="nepali-text" style="display: none;"><i>"तपाईंसँग तपाईंको दिमागमा शक्ति छ — बाह्य घटनाहरूमा होइन। यो बुझ्नुहोस्, र तपाईंलाई शक्ति प्राप्त हुनेछ।" — मार्कस अरेलियस</i></p>
             </div>
             
-            <h3 class="section-title english-text">The Core Rule of Stoicism</h3>
-            <h3 class="section-title nepali-text" style="display: none;">स्टोइसिज्मको मूल नियम</h3>
+            <div class="quote-box">
+                <p class="english-text">"The happiness of your life depends upon the quality of your thoughts." — Marcus Aurelius</p>
+                <p class="nepali-text" style="display: none;">"तपाईंको जीवनको खुशी तपाईंका विचारहरूको गुणस्तरमा निर्भर गर्दछ।" — मार्कस अरेलियस</p>
+            </div>
+            
+            <h3 class="section-title english-text">Core Stoic Principles</h3>
+            <h3 class="section-title nepali-text" style="display: none;">मुख्य स्टोइक सिद्धान्तहरू</h3>
             
             <div class="card">
                 <div class="card-title">
@@ -597,50 +662,46 @@
                     <span class="english-text">The Dichotomy of Control</span>
                     <span class="nepali-text" style="display: none;">नियन्त्रणको द्विभाजन</span>
                 </div>
-                <p class="english-text"><strong>There are only two categories in life:</strong></p>
-                <p class="nepali-text" style="display: none;"><strong>जीवनमा केवल दुई श्रेणीहरू छन्:</strong></p>
+                <p class="english-text"><strong>The foundation of Stoic practice:</strong></p>
+                <p class="nepali-text" style="display: none;"><strong>स्टोइक अभ्यासको आधार:</strong></p>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 1.5rem 0;">
                     <div>
-                        <h4 class="english-text" style="color: var(--success-color); margin-bottom: 0.8rem;">Things within your control</h4>
-                        <h4 class="nepali-text" style="color: var(--success-color); margin-bottom: 0.8rem; display: none;">तपाईंको नियन्त्रणमा रहेका कुराहरू</h4>
+                        <h4 class="english-text" style="color: var(--success-color); margin-bottom: 0.8rem;">Within Your Control</h4>
+                        <h4 class="nepali-text" style="color: var(--success-color); margin-bottom: 0.8rem; display: none;">तपाईंको नियन्त्रणमा</h4>
                         <ul class="rule-list">
-                            <li class="english-text">Your thoughts</li>
-                            <li class="nepali-text" style="display: none;">तपाईंका विचारहरू</li>
-                            <li class="english-text">Your actions</li>
-                            <li class="nepali-text" style="display: none;">तपाईंका कार्यहरू</li>
-                            <li class="english-text">Your values</li>
-                            <li class="nepali-text" style="display: none;">तपाईंका मूल्यहरू</li>
-                            <li class="english-text">Your effort</li>
-                            <li class="nepali-text" style="display: none;">तपाईंको प्रयास</li>
-                            <li class="english-text">Your response</li>
-                            <li class="nepali-text" style="display: none;">तपाईंको प्रतिक्रिया</li>
+                            <li class="english-text">Your thoughts & judgments</li>
+                            <li class="nepali-text" style="display: none;">तपाईंका विचार र निर्णयहरू</li>
+                            <li class="english-text">Your actions & reactions</li>
+                            <li class="nepali-text" style="display: none;">तपाईंका कार्य र प्रतिक्रियाहरू</li>
+                            <li class="english-text">Your values & character</li>
+                            <li class="nepali-text" style="display: none;">तपाईंका मूल्य र चरित्र</li>
+                            <li class="english-text">Your attention & focus</li>
+                            <li class="nepali-text" style="display: none;">तपाईंको ध्यान र केन्द्रण</li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="english-text" style="color: var(--danger-color); margin-bottom: 0.8rem;">Things outside your control</h4>
-                        <h4 class="nepali-text" style="color: var(--danger-color); margin-bottom: 0.8rem; display: none;">तपाईंको नियन्त्रणबाहिर रहेका कुराहरू</h4>
+                        <h4 class="english-text" style="color: var(--danger-color); margin-bottom: 0.8rem;">Outside Your Control</h4>
+                        <h4 class="nepali-text" style="color: var(--danger-color); margin-bottom: 0.8rem; display: none;">तपाईंको नियन्त्रणबाहिर</h4>
                         <ul class="rule-list">
                             <li class="english-text">Other people's opinions</li>
                             <li class="nepali-text" style="display: none;">अरू मानिसहरूका विचारहरू</li>
-                            <li class="english-text">Outcomes</li>
-                            <li class="nepali-text" style="display: none;">नतिजाहरू</li>
-                            <li class="english-text">Luck</li>
-                            <li class="nepali-text" style="display: none;">भाग्य</li>
-                            <li class="english-text">The past</li>
-                            <li class="nepali-text" style="display: none;">वित्तिका कुराहरू</li>
-                            <li class="english-text">External events</li>
-                            <li class="nepali-text" style="display: none;">बाह्य घटनाहरू</li>
+                            <li class="english-text">Past events & outcomes</li>
+                            <li class="nepali-text" style="display: none;">वित्तिका घटनाहरू र नतिजाहरू</li>
+                            <li class="english-text">External circumstances</li>
+                            <li class="nepali-text" style="display: none;">बाह्य परिस्थितिहरू</li>
+                            <li class="english-text">Luck & fortune</li>
+                            <li class="nepali-text" style="display: none;">भाग्य र सम्पत्ति</li>
                         </ul>
                     </div>
                 </div>
                 
-                <p class="english-text" style="margin-top: 1.5rem; padding: 1rem; background-color: #e6f7ff; border-radius: var(--radius); border-left: 4px solid var(--accent-color);">
-                    <strong>Stoic Rule:</strong> Focus all energy on Category 1. Release emotional attachment to Category 2. If it's not in your control, <strong>it doesn't deserve your peace</strong>.
+                <p class="english-text" style="margin-top: 1.5rem; padding: 1.2rem; background-color: rgba(59, 130, 246, 0.1); border-radius: var(--radius); border-left: 4px solid var(--accent-color);">
+                    <strong>Stoic Wisdom:</strong> Focus all your energy on what you can control. Release attachment to what you cannot. Peace is found in acceptance of this fundamental truth.
                 </p>
-                <p class="nepali-text" style="margin-top: 1.5rem; padding: 1rem; background-color: #e6f7ff; border-radius: var(--radius); border-left: 4px solid var(--accent-color); display: none;">
-                    <strong>स्टोइक नियम:</strong> सबै ऊर्जा श्रेणी १ मा केन्द्रित गर्नुहोस्। श्रेणी २ मा भावनात्मक आसक्ति छोड्नुहोस्। यदि यो तपाईंको नियन्त्रणमा छैन भने, <strong>यसले तपाईंको शान्तिको योग्य छैन</strong>।
+                <p class="nepali-text" style="margin-top: 1.5rem; padding: 1.2rem; background-color: rgba(59, 130, 246, 0.1); border-radius: var(--radius); border-left: 4px solid var(--accent-color); display: none;">
+                    <strong>स्टोइक बुद्धिमत्ता:</strong> तपाईंले नियन्त्रण गर्न सक्ने कुरामा आफ्नो सबै ऊर्जा केन्द्रित गर्नुहोस्। तपाईंले नियन्त्रण गर्न नसक्ने कुरामा आसक्ति छोड्नुहोस्। यो मौलिक सत्य स्वीकार गर्दा शान्ति प्राप्त हुन्छ।
                 </p>
             </div>
             
@@ -649,40 +710,45 @@
             
             <div class="virtues-container">
                 <div class="virtue-card">
-                    <div class="virtue-title english-text">Wisdom</div>
-                    <div class="virtue-title nepali-text" style="display: none;">बुद्धिमत्ता</div>
-                    <p class="english-text">Seeing reality clearly. Choosing reason over impulse.</p>
-                    <p class="nepali-text" style="display: none;">वास्तविकता स्पष्ट रूपमा हेर्नु। आवेग भन्दा कारण रोज्नु।</p>
-                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Rule:</strong> Pause before reacting. Ask: "What is the wise response?"</p>
-                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>नियम:</strong> प्रतिक्रिया दिनु अघि रोक्नुहोस्। सोध्नुहोस्: "बुद्धिमानी प्रतिक्रिया के हो?"</p>
+                    <div class="virtue-title english-text">Wisdom (Sophia)</div>
+                    <div class="virtue-title nepali-text" style="display: none;">बुद्धिमत्ता (सोफिया)</div>
+                    <p class="english-text">The ability to navigate complex situations with logic, reason, and practical knowledge.</p>
+                    <p class="nepali-text" style="display: none;">तर्क, कारण र व्यावहारिक ज्ञानको साथ जटिल परिस्थितिहरू न्यागिटेट गर्ने क्षमता।</p>
+                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Practice:</strong> Pause before reacting. Ask: "What would a wise person do?"</p>
+                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>अभ्यास:</strong> प्रतिक्रिया दिनु अघि रोक्नुहोस्। सोध्नुहोस्: "बुद्धिमान व्यक्तिले के गर्थ्यो?"</p>
                 </div>
                 
                 <div class="virtue-card">
-                    <div class="virtue-title english-text">Courage</div>
-                    <div class="virtue-title nepali-text" style="display: none;">साहस</div>
-                    <p class="english-text">Doing what is right even when it's uncomfortable.</p>
-                    <p class="nepali-text" style="display: none;">असजिलो भए पनि सही काम गर्नु।</p>
-                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Rule:</strong> Fear is a signal to act with principle, not to retreat.</p>
-                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>नियम:</strong> डर सिद्धान्तसँग कार्य गर्ने संकेत हो, पछि हट्ने होइन।</p>
+                    <div class="virtue-title english-text">Courage (Andreia)</div>
+                    <div class="virtue-title nepali-text" style="display: none;">साहस (एन्ड्रेइया)</div>
+                    <p class="english-text">Facing challenges with bravery, endurance, and moral integrity despite fear or discomfort.</p>
+                    <p class="nepali-text" style="display: none;">डर वा असजिलो भए पनि साहस, धैर्य र नैतिक ईमानदारीसँग चुनौतीहरू सामना गर्नु।</p>
+                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Practice:</strong> Do what's right, not what's easy. Fear signals growth opportunity.</p>
+                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>अभ्यास:</strong> सजिलो होइन, सही काम गर्नुहोस्। डरले वृद्धिको अवसर संकेत गर्दछ।</p>
                 </div>
                 
                 <div class="virtue-card">
-                    <div class="virtue-title english-text">Justice</div>
-                    <div class="virtue-title nepali-text" style="display: none;">न्याय</div>
-                    <p class="english-text">Treating others fairly, honestly, and with dignity.</p>
-                    <p class="nepali-text" style="display: none;">अरूलाई निष्पक्ष, ईमानदार, र गरिमासाथ व्यवहार गर्नु।</p>
-                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Rule:</strong> Never gain advantage by betraying character.</p>
-                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>नियम:</strong> चरित्रको विश्वासघात गरेर कहिल्यै फाइदा नलिनुहोस्।</p>
+                    <div class="virtue-title english-text">Justice (Dikaiosyne)</div>
+                    <div class="virtue-title nepali-text" style="display: none;">न्याय (डिकाइओसाइन)</div>
+                    <p class="english-text">Treating others fairly, acting with integrity, and contributing to the common good.</p>
+                    <p class="nepali-text" style="display: none;">अरूलाई निष्पक्ष रूपमा व्यवहार गर्नु, ईमानदारीसँग कार्य गर्नु, र सामान्य भलाइमा योगदान दिनु।</p>
+                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Practice:</strong> Ask: "How can I act for the benefit of all?"</p>
+                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>अभ्यास:</strong> सोध्नुहोस्: "म सबैको फाइदाको लागि कसरी कार्य गर्न सक्छु?"</p>
                 </div>
                 
                 <div class="virtue-card">
-                    <div class="virtue-title english-text">Temperance</div>
-                    <div class="virtue-title nepali-text" style="display: none;">संयम</div>
-                    <p class="english-text">Self-control. Discipline over desire.</p>
-                    <p class="nepali-text" style="display: none;">आत्म-नियन्त्रण। इच्छामाथि अनुशासन।</p>
-                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Rule:</strong> If it weakens the mind or body, it's not worth the pleasure.</p>
-                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>नियम:</strong> यदि यसले दिमाग वा शरीरलाई कमजोर बनाउँछ भने, यो आनन्दको लायक छैन।</p>
+                    <div class="virtue-title english-text">Temperance (Sophrosyne)</div>
+                    <div class="virtue-title nepali-text" style="display: none;">संयम (सोफ्रोसाइन)</div>
+                    <p class="english-text">Exercising self-control, moderation, and discipline over desires and impulses.</p>
+                    <p class="nepali-text" style="display: none;">इच्छा र आवेगहरूमाथि आत्म-नियन्त्रण, मध्यमता र अनुशासन प्रयोग गर्नु।</p>
+                    <p class="english-text" style="margin-top: 0.8rem; font-style: italic;"><strong>Practice:</strong> Voluntary discomfort builds resilience. Say no to excess.</p>
+                    <p class="nepali-text" style="margin-top: 0.8rem; font-style: italic; display: none;"><strong>अभ्यास:</strong> स्वैच्छिक असजिलोपनले लचिलोपन निर्माण गर्दछ। अतिरिक्ततालाई नाई भन्नुहोस्।</p>
                 </div>
+            </div>
+            
+            <div class="quote-box">
+                <p class="english-text">"Waste no more time arguing about what a good man should be. Be one." — Marcus Aurelius</p>
+                <p class="nepali-text" style="display: none;">"राम्रो मानिस के हुनुपर्छ भनेर बढी समय बर्बाद नगर्नुहोस्। एउटा बन्नुहोस्।" — मार्कस अरेलियस</p>
             </div>
             
             <h3 class="section-title english-text" style="margin-top: 3rem;">Stoic Mental Models</h3>
@@ -692,67 +758,83 @@
                 <div class="card">
                     <div class="card-title">
                         <i class="fas fa-skull-crossbones card-icon"></i>
-                        <span class="english-text">Memento Mori — Remember Death</span>
-                        <span class="nepali-text" style="display: none;">मेमेन्टो मोरी — मृत्यु सम्झनुहोस्</span>
+                        <span class="english-text">Memento Mori</span>
+                        <span class="nepali-text" style="display: none;">मेमेन्टो मोरी</span>
                     </div>
-                    <p class="english-text">You will die. This is not morbid — it is clarifying. Do not waste time on trivial resentment. Speak honestly. Act now, not "someday".</p>
-                    <p class="nepali-text" style="display: none;">तपाईं मर्नुहुनेछ। यो रोगात्मक होइन — यो स्पष्ट गर्ने हो। तुच्छ रीसमा समय नबर्बाद गर्नुहोस्। ईमानदारीसँग बोल्नुहोस्। अहिले कार्य गर्नुहोस्, "कुनै दिन" होइन।</p>
-                    <p class="english-text" style="margin-top: 1rem; font-style: italic;">"You could leave life right now. Let that determine what you do and say and think."</p>
-                    <p class="nepali-text" style="margin-top: 1rem; font-style: italic; display: none;">"तपाईं अहिले जीवन छोड्न सक्नुहुन्छ। त्यसले तपाईंले के गर्नुहुन्छ, के भन्नुहुन्छ, र के सोच्नुहुन्छ भन्ने निर्धारण गरोस्।"</p>
+                    <p class="english-text"><strong>"Remember you must die."</strong> This practice clarifies priorities, reduces trivial concerns, and inspires meaningful action today.</p>
+                    <p class="nepali-text" style="display: none;"><strong>"तपाईं मर्नुहुनेछ भनेर सम्झनुहोस्।"</strong> यो अभ्यासले प्राथमिकताहरू स्पष्ट गर्दछ, तुच्छ चिन्ताहरू घटाउँदछ, र आज सार्थक कार्यलाई प्रेरित गर्दछ।</p>
+                    <p class="english-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius);">
+                        <strong>Application:</strong> Live each day as if it could be your last, but plan as if you'll live forever.
+                    </p>
+                    <p class="nepali-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius); display: none;">
+                        <strong>अनुप्रयोग:</strong> प्रत्येक दिन त्यसरी बिताउनुहोस् जस्तो कि यो तपाईंको अन्तिम हुन सक्छ, तर योजना त्यसरी बनाउनुहोस् जस्तो कि तपाईं सधैंभरि बाँच्नुहुनेछ।
+                    </p>
                 </div>
                 
                 <div class="card">
                     <div class="card-title">
                         <i class="fas fa-heart card-icon"></i>
-                        <span class="english-text">Amor Fati — Love Your Fate</span>
-                        <span class="nepali-text" style="display: none;">अमोर फाटी — आफ्नो भाग्यलाई माया गर्नुहोस्</span>
+                        <span class="english-text">Amor Fati</span>
+                        <span class="nepali-text" style="display: none;">अमोर फाटी</span>
                     </div>
-                    <p class="english-text">Don't just accept what happens — use it. Whatever happens is raw material for growth. Bad day? Training. Failure? Feedback. Loss? Perspective.</p>
-                    <p class="nepali-text" style="display: none;">भएको कुरा मात्र स्वीकार गर्नुहोस् — यसलाई प्रयोग गर्नुहोस्। जे भए पनि वृद्धिको लागि कच्चा पदार्थ हो। खराब दिन? प्रशिक्षण। असफलता? प्रतिक्रिया। हानि? परिप्रेक्ष्य।</p>
+                    <p class="english-text"><strong>"Love your fate."</strong> Embrace everything that happens — good or bad — as necessary for your growth and character development.</p>
+                    <p class="nepali-text" style="display: none;"><strong>"आफ्नो भाग्यलाई माया गर्नुहोस्।"</strong> भएको हरेक कुरा — राम्रो वा नराम्रो — तपाईंको वृद्धि र चरित्र विकासको लागि आवश्यक भएर स्वीकार गर्नुहोस्।</p>
+                    <p class="english-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius);">
+                        <strong>Application:</strong> Transform obstacles into opportunities. Every difficulty is raw material for growth.
+                    </p>
+                    <p class="nepali-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius); display: none;">
+                        <strong>अनुप्रयोग:</strong> बाधाहरूलाई अवसरमा रूपान्तरण गर्नुहोस्। हरेक कठिनाई वृद्धिको लागि कच्चा पदार्थ हो।
+                    </p>
                 </div>
                 
                 <div class="card">
                     <div class="card-title">
                         <i class="fas fa-eye card-icon"></i>
-                        <span class="english-text">Premeditatio Malorum — Negative Visualization</span>
-                        <span class="nepali-text" style="display: none;">प्रिमेडिटाटिओ मालोरम — नकारात्मक दृश्यीकरण</span>
+                        <span class="english-text">Premeditatio Malorum</span>
+                        <span class="nepali-text" style="display: none;">प्रिमेडिटाटिओ मालोरम</span>
                     </div>
-                    <p class="english-text">Briefly imagine loss so you stop fearing it. Appreciate what you have. Reduce anxiety. Increase resilience.</p>
-                    <p class="nepali-text" style="display: none;">हानिको संक्षिप्त कल्पना गर्नुहोस् ताकि तपाईं यसबाट डराउन रोक्नुहोस्। तपाईंसँग जे छ त्यसको कदर गर्नुहोस्। चिन्ता घटाउनुहोस्। लचिलोपन बढाउनुहोस्।</p>
+                    <p class="english-text"><strong>"The premeditation of evils."</strong> Mentally rehearse potential challenges to reduce fear and increase preparedness.</p>
+                    <p class="nepali-text" style="display: none;"><strong>"अरिष्टहरूको पूर्वचिन्तन।"</strong> डर घटाउन र तयारी बढाउन सम्भावित चुनौतीहरू मानसिक रूपमा रिहर्सल गर्नुहोस्।</p>
+                    <p class="english-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius);">
+                        <strong>Application:</strong> Imagine losing what you value most. Then appreciate what you have right now.
+                    </p>
+                    <p class="nepali-text" style="margin-top: 1rem; padding: 1rem; background-color: rgba(30, 41, 59, 0.5); border-radius: var(--radius); display: none;">
+                        <strong>अनुप्रयोग:</strong> तपाईंले सबैभन्दा बढी मूल्याङ्कन गर्नुहुन्छ त्यो गुमाएको कल्पना गर्नुहोस्। त्यसपछि तपाईंसँग अहिले जे छ त्यसको कदर गर्नुहोस्।
+                    </p>
                 </div>
             </div>
             
-            <div class="card" style="margin-top: 3rem; background-color: #f0fff4; border-top-color: var(--success-color);">
+            <div class="card" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%); border-top-color: var(--success-color);">
                 <div class="card-title">
                     <i class="fas fa-tasks card-icon"></i>
-                    <span class="english-text">Daily Stoic Rules</span>
-                    <span class="nepali-text" style="display: none;">दैनिक स्टोइक नियमहरू</span>
+                    <span class="english-text">Daily Stoic Practices</span>
+                    <span class="nepali-text" style="display: none;">दैनिक स्टोइक अभ्यासहरू</span>
                 </div>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
                     <div>
-                        <h4 class="english-text" style="color: var(--primary-color); margin-bottom: 0.8rem;">Morning Rules</h4>
-                        <h4 class="nepali-text" style="color: var(--primary-color); margin-bottom: 0.8rem; display: none;">बिहानका नियमहरू</h4>
+                        <h4 class="english-text" style="color: var(--primary-color); margin-bottom: 0.8rem;">Morning Preparation</h4>
+                        <h4 class="nepali-text" style="color: var(--primary-color); margin-bottom: 0.8rem; display: none;">बिहानको तयारी</h4>
                         <ul class="rule-list">
-                            <li class="english-text">I will meet difficult people today</li>
-                            <li class="nepali-text" style="display: none;">म आज कठिन मानिसहरू भेट्छु</li>
-                            <li class="english-text">I will not be surprised by obstacles</li>
-                            <li class="nepali-text" style="display: none;">म बाधाहरूद्वारा आश्चर्यचकित हुने छैन</li>
-                            <li class="english-text">I will control my response, not events</li>
-                            <li class="nepali-text" style="display: none;">म घटनाहरू होइन, मेरो प्रतिक्रिया नियन्त्रण गर्छु</li>
+                            <li class="english-text">Visualize potential challenges</li>
+                            <li class="nepali-text" style="display: none;">सम्भावित चुनौतीहरू दृश्यीकरण गर्नुहोस्</li>
+                            <li class="english-text">Set intentions aligned with virtues</li>
+                            <li class="nepali-text" style="display: none;">गुणहरूसँग जोडिएको इरादाहरू सेट गर्नुहोस्</li>
+                            <li class="english-text">Remember: Today could be your last</li>
+                            <li class="nepali-text" style="display: none;">सम्झनुहोस्: आज तपाईंको अन्तिम हुन सक्छ</li>
                         </ul>
                     </div>
                     
                     <div>
-                        <h4 class="english-text" style="color: var(--primary-color); margin-bottom: 0.8rem;">During the Day</h4>
+                        <h4 class="english-text" style="color: var(--primary-color); margin-bottom: 0.8rem;">Throughout the Day</h4>
                         <h4 class="nepali-text" style="color: var(--primary-color); margin-bottom: 0.8rem; display: none;">दिनभरि</h4>
                         <ul class="rule-list">
-                            <li class="english-text">Pause before reacting</li>
-                            <li class="nepali-text" style="display: none;">प्रतिक्रिया दिनु अघि रोक्नुहोस्</li>
+                            <li class="english-text">Pause before reacting emotionally</li>
+                            <li class="nepali-text" style="display: none;">भावनात्मक प्रतिक्रिया दिनु अघि रोक्नुहोस्</li>
                             <li class="english-text">Ask: "Is this within my control?"</li>
                             <li class="nepali-text" style="display: none;">सोध्नुहोस्: "के यो मेरो नियन्त्रणमा छ?"</li>
-                            <li class="english-text">Act with dignity, even when unseen</li>
-                            <li class="nepali-text" style="display: none;">नदेखिए पनि गरिमासाथ कार्य गर्नुहोस्</li>
+                            <li class="english-text">Practice voluntary discomfort</li>
+                            <li class="nepali-text" style="display: none;">स्वैच्छिक असजिलोपन अभ्यास गर्नुहोस्</li>
                         </ul>
                     </div>
                     
@@ -760,18 +842,514 @@
                         <h4 class="english-text" style="color: var(--primary-color); margin-bottom: 0.8rem;">Evening Reflection</h4>
                         <h4 class="nepali-text" style="color: var(--primary-color); margin-bottom: 0.8rem; display: none;">साँझको विचार</h4>
                         <ul class="rule-list">
-                            <li class="english-text">What did I do well?</li>
-                            <li class="nepali-text" style="display: none;">मैले के राम्रो गरेँ?</li>
-                            <li class="english-text">Where did I react emotionally?</li>
-                            <li class="nepali-text" style="display: none;">म कहाँ भावनात्मक प्रतिक्रिया दिएँ?</li>
-                            <li class="english-text">How can I improve tomorrow?</li>
-                            <li class="nepali-text" style="display: none;">म भोलि कसरी सुधार गर्न सक्छु?</li>
+                            <li class="english-text">Review actions against virtues</li>
+                            <li class="nepali-text" style="display: none;">गुणहरू विरुद्ध कार्यहरू पुनरीक्षण गर्नुहोस्</li>
+                            <li class="english-text">Note where you reacted poorly</li>
+                            <li class="nepali-text" style="display: none;">तपाईंले कहाँ खराब प्रतिक्रिया दिनुभयो नोट गर्नुहोस्</li>
+                            <li class="english-text">Plan improvements for tomorrow</li>
+                            <li class="nepali-text" style="display: none;">भोलिको लागि सुधार योजना गर्नुहोस्</li>
                         </ul>
                     </div>
                 </div>
                 
-                <p class="english-text" style="margin-top: 1.5rem; text-align: center; font-style: italic; font-weight: 500;">Progress, not perfection.</p>
-                <p class="nepali-text" style="margin-top: 1.5rem; text-align: center; font-style: italic; font-weight: 500; display: none;">पूर्णताको होइन, प्रगतिको।</p>
+                <p class="english-text" style="margin-top: 1.5rem; text-align: center; font-style: italic; font-weight: 500; color: var(--accent-color);">Progress, not perfection. Small daily improvements lead to monumental results over time.</p>
+                <p class="nepali-text" style="margin-top: 1.5rem; text-align: center; font-style: italic; font-weight: 500; color: var(--accent-color); display: none;">पूर्णताको होइन, प्रगतिको। सानो दैनिक सुधारहरूले समयको साथ ठूलो नतिजा ल्याउँछन्।</p>
+            </div>
+            
+            <div class="quote-box" style="margin-top: 3rem;">
+                <p class="english-text">"The impediment to action advances action. What stands in the way becomes the way." — Marcus Aurelius</p>
+                <p class="nepali-text" style="display: none;">"कार्यमा बाधाले कार्यलाई अगाडि बढाउँछ। बाटोमा जे खडा हुन्छ त्यो नै बाटो बन्छ।" — मार्कस अरेलियस</p>
+            </div>
+        </section>
+        
+        <!-- Personal Rulebook Tab -->
+        <section id="rulebook-content" class="tab-content">
+            <div class="hero">
+                <h2 class="english-text">Personal Rulebook</h2>
+                <h2 class="nepali-text" style="display: none;">व्यक्तिगत नियमावली</h2>
+                <p class="english-text">For ages 18-22 | During confusion, loneliness, pressure</p>
+                <p class="nepali-text" style="display: none;">१८-२२ वर्षको लागि | भ्रम, एकान्त, दबावको समयमा</p>
+                <p class="english-text">A practical guide to navigate through challenging times with clarity and resilience.</p>
+                <p class="nepali-text" style="display: none;">स्पष्टता र लचिलोपनको साथ चुनौतीपूर्ण समयहरू हाँग्ने एक व्यवहारिक मार्गदर्शन।</p>
+            </div>
+            
+            <!-- SECTION 1 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-brain"></i>
+                    <span class="english-text">SECTION 1: WHEN MY MIND STARTS SPIRALING</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन १: जब मेरो दिमाग सर्पिल हुन थाल्छ</span>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">1</div>
+                            <span class="english-text">I pause before reacting</span>
+                            <span class="nepali-text" style="display: none;">म प्रतिक्रिया दिनु अघि रोक्छु</span>
+                        </div>
+                        <p class="english-text" style="margin-bottom: 1rem; color: var(--text-secondary);">When I feel:</p>
+                        <p class="nepali-text" style="margin-bottom: 1rem; color: var(--text-secondary); display: none;">जब म महसुस गर्छु:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Panic</li>
+                            <li class="nepali-text" style="display: none;">आतंक</li>
+                            <li class="english-text">Obsession</li>
+                            <li class="nepali-text" style="display: none;">जुनून</li>
+                            <li class="english-text">Urge to text</li>
+                            <li class="nepali-text" style="display: none;">पाठ गर्ने इच्छा</li>
+                            <li class="english-text">Urge to quit</li>
+                            <li class="nepali-text" style="display: none;">छोड्ने इच्छा</li>
+                            <li class="english-text">"Everything is fucked" thoughts</li>
+                            <li class="nepali-text" style="display: none;">"सबै खराब छ" विचारहरू</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--accent-color);">I do nothing for 10 minutes.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--accent-color); display: none;">म १० मिनेटको लागि केहि पनि गर्दिन।</p>
+                        
+                        <p class="english-text" style="margin-top: 1rem; font-style: italic; color: var(--text-secondary);">No decisions are allowed in emotional spikes.</p>
+                        <p class="nepali-text" style="margin-top: 1rem; font-style: italic; color: var(--text-secondary); display: none;">भावनात्मक चरम मोडमा कुनै निर्णय गर्न अनुमति छैन।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">2</div>
+                            <span class="english-text">I name the state, not the story</span>
+                            <span class="nepali-text" style="display: none;">म कथा होइन, अवस्था नामकरण गर्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1rem; color: var(--text-secondary);">I say:</p>
+                        <p class="nepali-text" style="margin-bottom: 1rem; color: var(--text-secondary); display: none;">म भन्छु:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">"I am anxious."</li>
+                            <li class="nepali-text" style="display: none;">"म चिन्तित छु।"</li>
+                            <li class="english-text">"Loneliness is present."</li>
+                            <li class="nepali-text" style="display: none;">"एकान्तता उपस्थित छ।"</li>
+                            <li class="english-text">"I am overwhelmed."</li>
+                            <li class="nepali-text" style="display: none;">"म अभिभूत छु।"</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">I do <strong>not</strong> say:</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary); display: none;">म <strong>यो</strong> भन्दिन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">"My life is ruined."</li>
+                            <li class="nepali-text" style="display: none;">"मेरो जीवन बर्बाद भयो।"</li>
+                            <li class="english-text">"I am a failure."</li>
+                            <li class="nepali-text" style="display: none;">"म असफल छु।"</li>
+                            <li class="english-text">"This means everything."</li>
+                            <li class="nepali-text" style="display: none;">"यसको अर्थ सबै कुरा हो।"</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">States pass. Stories trap.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">अवस्थाहरू बित्छन्। कथाहरू फँसाउँछन्।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">3</div>
+                            <span class="english-text">I return to the body first</span>
+                            <span class="nepali-text" style="display: none;">म पहिले शरीरमा फर्क्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Before thinking, planning, or fixing:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">सोच्नु, योजना बनाउनु, वा समस्या समाधान गर्नु अघि:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Feet on floor</li>
+                            <li class="nepali-text" style="display: none;">फ्लोरमा खुट्टा</li>
+                            <li class="english-text">One slow breath</li>
+                            <li class="nepali-text" style="display: none;">एउटा ढिलो सास</li>
+                            <li class="english-text">Feel something physical</li>
+                            <li class="nepali-text" style="display: none;">शारीरिक केहि महसुस गर्नु</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">If my body is grounded, my mind will follow.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">यदि मेरो शरीर जमीनसँग जोडिएको छ भने, मेरो दिमाग पनि पछ्याउनेछ।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- SECTION 2 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-heart"></i>
+                    <span class="english-text">SECTION 2: ABOUT LOVE, ATTACHMENT, AND OBSESSION</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन २: प्रेम, आसक्ति, र जुनूनको बारेमा</span>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">4</div>
+                            <span class="english-text">I do not turn a person into my future</span>
+                            <span class="nepali-text" style="display: none;">म कसैलाई मेरो भविष्य नबनाउँछु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">No human being is allowed to carry:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">कुनै पनि मानिसलाई बोक्न दिँदैन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">My hope</li>
+                            <li class="nepali-text" style="display: none;">मेरो आशा</li>
+                            <li class="english-text">My motivation</li>
+                            <li class="nepali-text" style="display: none;">मेरो प्रेरणा</li>
+                            <li class="english-text">My self-worth</li>
+                            <li class="nepali-text" style="display: none;">मेरो आत्म-मूल्य</li>
+                            <li class="english-text">My identity</li>
+                            <li class="nepali-text" style="display: none;">मेरो पहिचान</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">Love is a <strong>bonus</strong>, not a foundation.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">प्रेम एउटा <strong>बोनस</strong> हो, आधार होइन।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">5</div>
+                            <span class="english-text">If it costs my peace, I step back</span>
+                            <span class="nepali-text" style="display: none;">यदि यसले मेरो शान्ति बेच्छ भने, म पछि हट्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">If thinking about someone:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">यदि कसैको बारेमा सोच्दा:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Breaks my focus</li>
+                            <li class="nepali-text" style="display: none;">मेरो ध्यान भंग हुन्छ</li>
+                            <li class="english-text">Controls my mood</li>
+                            <li class="nepali-text" style="display: none;">मेरो मनसाय नियन्त्रण हुन्छ</li>
+                            <li class="english-text">Makes me wait instead of live</li>
+                            <li class="nepali-text" style="display: none;">म जीवन बिताउनुको सट्टा पर्खन बाध्य हुन्छु</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; color: var(--text-secondary);">Then I reduce emotional exposure.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; color: var(--text-secondary); display: none;">त्यसपछि म भावनात्मक जोखिम घटाउँछु।</p>
+                        
+                        <p class="english-text" style="margin-top: 1rem; font-style: italic; color: var(--accent-color); font-weight: 600;">This is self-respect, not coldness.</p>
+                        <p class="nepali-text" style="margin-top: 1rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">यो आत्म-सम्मान हो, चिसोपन होइन।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">6</div>
+                            <span class="english-text">I choose dignity over intensity</span>
+                            <span class="nepali-text" style="display: none;">म तीव्रताभन्दा गरिमा रोज्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">I do not:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">म गर्दिन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Chase clarity</li>
+                            <li class="nepali-text" style="display: none;">स्पष्टताको पछि लाग्दिन</li>
+                            <li class="english-text">Seek reassurance</li>
+                            <li class="nepali-text" style="display: none;">आश्वासन खोज्दिन</li>
+                            <li class="english-text">Over-communicate feelings</li>
+                            <li class="nepali-text" style="display: none;">भावनाहरू धेरै व्यक्त गर्दिन</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">One honest action is enough.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">एक ईमानदार कार्य पर्याप्त छ।</p>
+                        
+                        <p class="english-text" style="margin-top: 1rem; font-weight: 600; color: var(--text-primary);">After that, I live my life.</p>
+                        <p class="nepali-text" style="margin-top: 1rem; font-weight: 600; color: var(--text-primary); display: none;">त्यसपछि, म आफ्नो जीवन जिउँछु।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- SECTION 3 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="english-text">SECTION 3: ABOUT STUDY, CAREER, AND FUTURE</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन ३: अध्ययन, करियर, र भविष्यको बारेमा</span>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">7</div>
+                            <span class="english-text">I shrink the time horizon</span>
+                            <span class="nepali-text" style="display: none;">म समय सीमा सानो बनाउँछु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">When future thoughts overwhelm me, I return to:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">जब भविष्यका विचारहरूले मलाई अभिभूत बनाउँछ, म फर्क्छु:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Today</li>
+                            <li class="nepali-text" style="display: none;">आज</li>
+                            <li class="english-text">This study block</li>
+                            <li class="nepali-text" style="display: none;">यो अध्ययन ब्लक</li>
+                            <li class="english-text">This chapter</li>
+                            <li class="nepali-text" style="display: none;">यो अध्याय</li>
+                            <li class="english-text">This week</li>
+                            <li class="nepali-text" style="display: none;">यो हप्ता</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">I do not live in 5–10 year fantasies.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">म ५–१० वर्षका कल्पनाहरूमा बाँच्दिन।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">8</div>
+                            <span class="english-text">I measure effort, not outcome</span>
+                            <span class="nepali-text" style="display: none;">म नतिजा होइन, प्रयास नाप्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Success today means:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">आजको सफलताको अर्थ:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">I showed up</li>
+                            <li class="nepali-text" style="display: none;">म उपस्थित भएँ</li>
+                            <li class="english-text">I studied honestly</li>
+                            <li class="nepali-text" style="display: none;">मैले ईमानदारीसाथ अध्ययन गरेँ</li>
+                            <li class="english-text">I stayed present</li>
+                            <li class="nepali-text" style="display: none;">म वर्तमानमा रहें</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">Grades, PhD, money come <strong>later</strong>.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">ग्रेडहरू, पिएचडी, पैसा <strong>पछि</strong> आउँछन्।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">9</div>
+                            <span class="english-text">I study in containers</span>
+                            <span class="nepali-text" style="display: none;">म कन्टेनरहरूमा अध्ययन गर्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Study is:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">अध्ययन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Limited</li>
+                            <li class="nepali-text" style="display: none;">सीमित</li>
+                            <li class="english-text">Structured</li>
+                            <li class="nepali-text" style="display: none;">संरचित</li>
+                            <li class="english-text">Finite</li>
+                            <li class="nepali-text" style="display: none;">परिमित</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--text-primary);">I do not binge.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--text-primary); display: none;">म बिन्ज गर्दिन।</p>
+                        
+                        <p class="english-text" style="margin-top: 1rem; font-weight: 600; color: var(--text-primary);">I do not punish myself.</p>
+                        <p class="nepali-text" style="margin-top: 1rem; font-weight: 600; color: var(--text-primary); display: none;">म आफैलाई सजाय दिँदिन।</p>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">Consistency > intensity.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">निरन्तरता > तीव्रता।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- SECTION 4 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-users"></i>
+                    <span class="english-text">SECTION 4: ABOUT COMPARISON AND SOCIETY</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन ४: तुलना र समाजको बारेमा</span>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">10</div>
+                            <span class="english-text">I do not compare timelines</span>
+                            <span class="nepali-text" style="display: none;">म समयसीमाको तुलना गर्दिन</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Other people's paths are:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">अरू मानिसहरूका बाटाहरू:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Different backgrounds</li>
+                            <li class="nepali-text" style="display: none;">विभिन्न पृष्ठभूमिहरू</li>
+                            <li class="english-text">Different struggles</li>
+                            <li class="nepali-text" style="display: none;">विभिन्न संघर्षहरू</li>
+                            <li class="english-text">Different costs</li>
+                            <li class="nepali-text" style="display: none;">विभिन्न लागतहरू</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">My job is to build <strong>my version of a good life</strong>.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">मेरो काम <strong>राम्रो जीवनको मेरो संस्करण</strong> निर्माण गर्नु हो।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">11</div>
+                            <span class="english-text">I do not argue with imaginary critics</span>
+                            <span class="nepali-text" style="display: none;">म काल्पनिक आलोचकहरूसँग बहस गर्दिन</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">I will not:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">म गर्दिन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Rehearse answers to relatives</li>
+                            <li class="nepali-text" style="display: none;">नातेदारहरूलाई उत्तरहरू रिहर्सल गर्दिन</li>
+                            <li class="english-text">Defend my choices in my head</li>
+                            <li class="nepali-text" style="display: none;">मेरो छनौटहरू दिमागमा बचाव गर्दिन</li>
+                            <li class="english-text">Live for approval</li>
+                            <li class="nepali-text" style="display: none;">अनुमतिको लागि बाँच्दिन</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">Results speak. Silence is okay.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">नतिजाहरूले बोल्छन्। मौन ठीक छ।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- SECTION 5 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-sad-tear"></i>
+                    <span class="english-text">SECTION 5: ABOUT LONELINESS AND EMOTIONAL PAIN</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन ५: एकान्तता र भावनात्मक पीडाको बारेमा</span>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">12</div>
+                            <span class="english-text">I allow pain without dramatizing it</span>
+                            <span class="nepali-text" style="display: none;">म नाटकीय बनाएर नभएको पीडा अनुमति दिन्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Pain does not mean:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">पीडाको अर्थ यो होइन:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">Something is wrong with me</li>
+                            <li class="nepali-text" style="display: none;">मसँग केहि गलत छ</li>
+                            <li class="english-text">I need to escape</li>
+                            <li class="nepali-text" style="display: none;">म भाग्नु आवश्यक छ</li>
+                            <li class="english-text">I need to fix everything now</li>
+                            <li class="nepali-text" style="display: none;">मैले अहिले सबै ठीक गर्नु आवश्यक छ</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary);">Pain means:</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary); display: none;">पीडाको अर्थ:</p>
+                        
+                        <p class="english-text" style="font-size: 1.3rem; font-weight: 600; color: var(--accent-color);">"I am growing."</p>
+                        <p class="nepali-text" style="font-size: 1.3rem; font-weight: 600; color: var(--accent-color); display: none;">"म बढ्दैछु।"</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">13</div>
+                            <span class="english-text">I replace fantasy with presence</span>
+                            <span class="nepali-text" style="display: none;">म कल्पनालाई उपस्थितिले प्रतिस्थापन गर्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">When my mind escapes:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">जब मेरो दिमाग भाग्छ:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">I notice</li>
+                            <li class="nepali-text" style="display: none;">म ध्यान दिन्छु</li>
+                            <li class="english-text">I ground</li>
+                            <li class="nepali-text" style="display: none;">म जमीनसँग जोड्छु</li>
+                            <li class="english-text">I return</li>
+                            <li class="nepali-text" style="display: none;">म फर्क्छु</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--text-primary);">Again and again.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-weight: 600; color: var(--text-primary); display: none;">फेरि र फेरि।</p>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">This is training, not failure.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">यो प्रशिक्षण हो, असफलता होइन।</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <div class="rule-number">14</div>
+                            <span class="english-text">I anchor myself daily</span>
+                            <span class="nepali-text" style="display: none;">म दैनिक आफैलाई एङ्कर गर्छु</span>
+                        </div>
+                        
+                        <p class="english-text" style="margin-bottom: 1.5rem; color: var(--text-secondary);">Every day must include:</p>
+                        <p class="nepali-text" style="margin-bottom: 1.5rem; color: var(--text-secondary); display: none;">प्रत्येक दिनमा समावेश हुनुपर्छ:</p>
+                        
+                        <ul class="rule-list">
+                            <li class="english-text">One physical movement</li>
+                            <li class="nepali-text" style="display: none;">एउटा शारीरिक हलचल</li>
+                            <li class="english-text">One focused task</li>
+                            <li class="nepali-text" style="display: none;">एउटा केन्द्रित काम</li>
+                            <li class="english-text">One moment of quiet</li>
+                            <li class="nepali-text" style="display: none;">एउटा शान्तिको क्षण</li>
+                        </ul>
+                        
+                        <p class="english-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600;">These are non-negotiable.</p>
+                        <p class="nepali-text" style="margin-top: 1.5rem; font-style: italic; color: var(--accent-color); font-weight: 600; display: none;">यी कुनै वार्तामा नलाग्ने हुन्।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <!-- SECTION 6 -->
+            <div class="rule-section">
+                <div class="section-heading">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span class="english-text">SECTION 6: WHEN EVERYTHING FEELS TOO MUCH</span>
+                    <span class="nepali-text" style="display: none;">सेक्सन ६: जब सबै कुरा धेरै महसुस हुन्छ</span>
+                </div>
+                
+                <div class="emergency-rule">
+                    <div class="emergency-title">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="english-text">Emergency Rule (MOST IMPORTANT)</span>
+                        <span class="nepali-text" style="display: none;">आपतकालीन नियम (सबैभन्दा महत्त्वपूर्ण)</span>
+                    </div>
+                    
+                    <p class="english-text" style="font-size: 1.2rem; margin-bottom: 1rem;">When I feel like collapsing, I do <strong>only three things</strong>:</p>
+                    <p class="nepali-text" style="font-size: 1.2rem; margin-bottom: 1rem; display: none;">जब म ढल्ने जस्तो महसुस गर्छु, म <strong>केवल तीन काम मात्र</strong> गर्छु:</p>
+                    
+                    <ul class="emergency-list">
+                        <li class="english-text">Eat something</li>
+                        <li class="nepali-text" style="display: none;">केहि खानुहोस्</li>
+                        <li class="english-text">Sleep</li>
+                        <li class="nepali-text" style="display: none;">सुत्नुहोस्</li>
+                        <li class="english-text">Do one small task</li>
+                        <li class="nepali-text" style="display: none;">एउटा सानो काम गर्नुहोस्</li>
+                    </ul>
+                    
+                    <p class="english-text" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary);">That's it.</p>
+                    <p class="nepali-text" style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); display: none;">त्यत्ति मात्र।</p>
+                    
+                    <p class="english-text" style="font-size: 1.2rem; font-weight: 600;">No life decisions are made in survival mode.</p>
+                    <p class="nepali-text" style="font-size: 1.2rem; font-weight: 600; display: none;">जीवन निर्वाह मोडमा जीवनको निर्णयहरू गरिदैन।</p>
+                </div>
+            </div>
+            
+            <!-- Final Rule -->
+            <div class="final-rule">
+                <h3 class="english-text" style="color: var(--accent-color); margin-bottom: 2rem;">FINAL RULE (READ THIS OFTEN)</h3>
+                <h3 class="nepali-text" style="color: var(--accent-color); margin-bottom: 2rem; display: none;">अन्तिम नियम (यो अक्सर पढ्नुहोस्)</h3>
+                
+                <div class="final-rule-text">
+                    <p class="english-text">I am not broken. I am rebuilding.</p>
+                    <p class="nepali-text" style="display: none;">म भाँचिएको होइन। म पुनर्निर्माण गर्दैछु।</p>
+                    
+                    <p class="english-text" style="margin: 1.5rem 0;">This phase will not last forever.</p>
+                    <p class="nepali-text" style="margin: 1.5rem 0; display: none;">यो चरण सधैंभरि रहने छैन।</p>
+                    
+                    <p class="english-text">If I stay steady, my life will open up.</p>
+                    <p class="nepali-text" style="display: none;">यदि म स्थिर रहें भने, मेरो जीवन खुल्नेछ।</p>
+                </div>
             </div>
         </section>
     </main>
@@ -794,8 +1372,8 @@
             </div>
             
             <div class="copyright">
-                <p class="english-text">© 2023 Ritish Lamsal | Personal Stoicism & Rulebook</p>
-                <p class="nepali-text" style="display: none;">© २०२३ रितिस लम्साल | व्यक्तिगत स्टोइसिज्म र नियमावली</p>
+                <p class="english-text">© 2026 Ritish Lamsal | Personal Stoicism & Rulebook</p>
+                <p class="nepali-text" style="display: none;">© २०२६ रितिस लम्साल | व्यक्तिगत स्टोइसिज्म र नियमावली</p>
             </div>
         </div>
     </footer>
@@ -803,9 +1381,20 @@
     <script>
         // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Set Stoicism as default active tab
+            const stoicismTab = document.querySelector('a[data-tab="stoicism"].english-text');
+            const rulebookTab = document.querySelector('a[data-tab="rulebook"].english-text');
+            const stoicismContent = document.getElementById('stoicism-content');
+            const rulebookContent = document.getElementById('rulebook-content');
+            
+            // Initially activate Stoicism tab
+            stoicismTab.classList.add('active');
+            stoicismContent.classList.add('active');
+            rulebookTab.classList.remove('active');
+            rulebookContent.classList.remove('active');
+            
             // Tab switching
             const tabLinks = document.querySelectorAll('nav a');
-            const tabContents = document.querySelectorAll('.tab-content');
             
             tabLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -815,14 +1404,46 @@
                     const tabId = this.getAttribute('data-tab');
                     
                     // Remove active class from all tabs and links
-                    tabContents.forEach(tab => tab.classList.remove('active'));
-                    tabLinks.forEach(tabLink => tabLink.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('nav a').forEach(tabLink => tabLink.classList.remove('active'));
                     
                     // Add active class to current tab and link
                     document.getElementById(`${tabId}-content`).classList.add('active');
                     this.classList.add('active');
                 });
             });
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Check for saved theme or prefer dark mode
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                enableLightMode();
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                if (document.body.classList.contains('light-mode')) {
+                    enableDarkMode();
+                } else {
+                    enableLightMode();
+                }
+            });
+            
+            function enableDarkMode() {
+                document.body.classList.remove('light-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            function enableLightMode() {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
             
             // Language toggle functionality
             const langEnBtn = document.getElementById('lang-en');
@@ -878,15 +1499,36 @@
                 }
             });
             
-            // Auto-translate any missing translations on the page
-            // This is a simple example - in a real implementation, you would have complete translations
-            function autoTranslateMissing() {
-                // This function would be implemented with a proper translation API
-                // For now, we're just using the provided translations
-                console.log("Translation system ready");
-            }
-            
-            autoTranslateMissing();
+            // Add CSS for light mode
+            const style = document.createElement('style');
+            style.textContent = `
+                .light-mode {
+                    --bg-dark: #f8fafc;
+                    --bg-card: #ffffff;
+                    --bg-header: #ffffff;
+                    --text-primary: #1e293b;
+                    --text-secondary: #64748b;
+                    --border-color: #e2e8f0;
+                    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                }
+                
+                .light-mode .card {
+                    border: 1px solid var(--border-color);
+                }
+                
+                .light-mode .hero {
+                    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+                }
+                
+                .light-mode .emergency-rule {
+                    background: linear-gradient(135deg, #fed7d7 0%, #feebc8 100%);
+                }
+                
+                .light-mode .final-rule {
+                    background: linear-gradient(135deg, #d1fae5 0%, #dbeafe 100%);
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
